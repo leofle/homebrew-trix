@@ -22,7 +22,24 @@ jobs:
           tap="$(brew --repository)/Library/Taps/leofle/homebrew-trix"
           mkdir -p "$(dirname "$tap")"
           cp -R "$GITHUB_WORKSPACE" "$tap"
+          brew trust leofle/trix
       - run: brew audit --formula leofle/trix/trix
       - run: brew install leofle/trix/trix
       - run: brew test leofle/trix/trix
+      - run: trix --version
+
+  # What someone gets running the README's command: the formula on main,
+  # tapped from GitHub, with no tap trusted beforehand.
+  as-a-user:
+    if: github.ref == 'refs/heads/main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Put Homebrew on the path
+        if: runner.os == 'Linux'
+        run: echo /home/linuxbrew/.linuxbrew/bin >> "$GITHUB_PATH"
+      - run: brew install leofle/trix/trix
       - run: trix --version

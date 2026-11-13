@@ -3,7 +3,6 @@
 class Trix < Formula
   desc "Terminal workspace where coding agents live"
   homepage "https://github.com/leofle/trix"
-  version "1.0.0"
   license "MIT"
 
   on_macos do
