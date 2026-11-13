@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-15-intel, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Put Homebrew on the path
+        if: runner.os == 'Linux'
+        run: echo /home/linuxbrew/.linuxbrew/bin >> "$GITHUB_PATH"
+      - name: Tap this checkout
+        run: |
+          tap="$(brew --repository)/Library/Taps/leofle/homebrew-trix"
+          mkdir -p "$(dirname "$tap")"
+          cp -R "$GITHUB_WORKSPACE" "$tap"
+      - run: brew audit --formula leofle/trix/trix
+      - run: brew install leofle/trix/trix
+      - run: brew test leofle/trix/trix
+      - run: trix --version
