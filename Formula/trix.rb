@@ -7,23 +7,23 @@ class Trix < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/leofle/trix/releases/download/v1.4.3/trix-aarch64-apple-darwin.tar.gz"
-      sha256 "8fd2b48c6bc8359f9a407d7824aa2386d248487807479d831073b347636fb129"
+      url "https://github.com/leofle/trix/releases/download/v1.5.0/trix-aarch64-apple-darwin.tar.gz"
+      sha256 "8d5eda8bb981e680497dc798882b9158248b3644cf4bd527382f461b9a911e58"
     end
     on_intel do
-      url "https://github.com/leofle/trix/releases/download/v1.4.3/trix-x86_64-apple-darwin.tar.gz"
-      sha256 "20cac5e980795bc460c359c4dda7e64edcf4fb7f4c5f54ef1639062c8ce895a1"
+      url "https://github.com/leofle/trix/releases/download/v1.5.0/trix-x86_64-apple-darwin.tar.gz"
+      sha256 "be468e59786590f8ab7ef10b3b691a4ee1a224ba92cd06524ba807f2d3f4f8c5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/leofle/trix/releases/download/v1.4.3/trix-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "708d3f6416788f9f5b9e83f12b09b884da956b73dc08ba69081074d0f58bc95d"
+      url "https://github.com/leofle/trix/releases/download/v1.5.0/trix-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "e47ed0bf58ad92023380b7092f2a27e236fb6e4684fbc643571ce5a845d5701f"
     end
     on_intel do
-      url "https://github.com/leofle/trix/releases/download/v1.4.3/trix-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "0d6d4bf422e2086cfea70a555597d641eefb1b9fa04a693910b6852e00c4266c"
+      url "https://github.com/leofle/trix/releases/download/v1.5.0/trix-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "ff9b08d85cf41465385193023b3f593c794cf732c452d04a9dc88fc233b995b5"
     end
   end
 
